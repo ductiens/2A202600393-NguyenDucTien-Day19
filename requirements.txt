@@ -1,0 +1,10 @@
+networkx
+matplotlib
+pandas
+langchain
+langchain-openai
+langchain-community
+chromadb
+tiktoken
+python-dotenv
+pydantic

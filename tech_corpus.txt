@@ -1,0 +1,9 @@
+OpenAI được thành lập bởi Sam Altman và Elon Musk vào năm 2015.
+Microsoft đã đầu tư 10 tỷ USD vào OpenAI.
+Google đã mua lại công ty DeepMind.
+Demis Hassabis là người đồng sáng lập của DeepMind.
+Arthur Mensch từng là nhà nghiên cứu tại DeepMind trước khi rời đi.
+Năm 2023, Arthur Mensch đã thành lập công ty Mistral AI.
+Dario Amodei từng làm việc tại OpenAI với tư cách là Phó chủ tịch nghiên cứu.
+Sau khi bất đồng quan điểm, Dario Amodei đã rời OpenAI và thành lập Anthropic.
+Amazon đã đầu tư 4 tỷ USD vào Anthropic để cạnh tranh với Microsoft.

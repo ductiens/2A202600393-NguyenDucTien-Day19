@@ -1,13 +1,11 @@
 # BÁO CÁO LAB 19: XÂY DỰNG HỆ THỐNG GRAPHRAG VỚI TECH COMPANY CORPUS
 
-**Họ và tên:** [Điền tên của bạn vào đây]  
-**Mã sinh viên:** [Điền mã SV của bạn vào đây]  
-**Môn học:** AICB-P2T3 - Agent Nâng Cao  
-
+**Họ và tên:** Nguyễn Đức Tiến 
+**Mã sinh viên:** 2A202600393  
 ---
 
 ## 1. MÃ NGUỒN (SOURCE CODE)
-*Mã nguồn hoàn chỉnh bao gồm các file `graph_rag.py`, `flat_rag.py` và `main_benchmark.py` đã được nén trong file `.zip` nộp kèm theo báo cáo này.*
+*Mã nguồn hoàn chỉnh bao gồm các file đã đẩy lên github.*
 
 ---
 

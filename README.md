@@ -3,6 +3,7 @@
 ## Giới thiệu dự án
 
 Đây là dự án so sánh hiệu suất giữa hai phương pháp RAG (Retrieval-Augmented Generation):
+
 - **GraphRAG**: Sử dụng đồ thị tri thức để truy vấn đa bước (multi-hop)
 - **Flat RAG**: Sử dụng vector database truyền thống (ChromaDB)
 
@@ -18,23 +19,28 @@ lab19_graphrag/
 ├── graph_rag.py          # Logic xây dựng GraphRAG (Bước 1, 2, 3)
 ├── flat_rag.py           # Logic xây dựng Flat RAG truyền thống
 ├── main_benchmark.py     # Bước 4: Chạy so sánh và báo cáo
+├── Bao_cao_Lab19.md      # Báo cáo chi tiết kết quả thực nghiệm
+├── knowledge_graph.png   # Ảnh trực quan hóa đồ thị tri thức (tự động tạo)
 └── README.md             # File này
 ```
 
 ## Cài đặt
 
 1. Tạo virtual environment:
+
 ```bash
 python -m venv venv
 venv\Scripts\activate
 ```
 
 2. Cài đặt dependencies:
+
 ```bash
 pip install -r requirements.txt
 ```
 
 3. Cấu hình API key:
+
 ```bash
 cp .env.example .env
 # Chỉnh sửa file .env và thêm OpenAI API key của bạn
@@ -45,15 +51,18 @@ cp .env.example .env
 ### 1. GraphRAG (`graph_rag.py`)
 
 **Bước 1: Entity Extraction**
+
 - Sử dụng LLM (GPT-3.5-turbo) để trích xuất các bộ ba (Subject, Predicate, Object)
 - Ví dụ: `(OpenAI, FOUNDED_BY, Sam Altman)`
 - Sử dụng Pydantic để đảm bảo cấu trúc output
 
 **Bước 2: Graph Construction**
+
 - Xây dựng đồ thị có hướng (Directed Graph) từ các triples
 - Sử dụng NetworkX để quản lý cấu trúc đồ thị
 
 **Bước 3: Graph Querying**
+
 - Trích xuất thực thể chính từ câu hỏi
 - Duyệt đồ thị 2-hop từ thực thể đó
 - Chuyển đổi subgraph thành văn bản context
@@ -81,6 +90,7 @@ cp .env.example .env
 ### NetworkX đã làm gì trong dự án?
 
 #### 1. **Xây dựng Đồ thị Tri thức (Knowledge Graph)**
+
 ```python
 def build_networkx_graph(triples: list[tuple]) -> nx.DiGraph:
     G = nx.DiGraph()  # Tạo đồ thị có hướng
@@ -95,6 +105,7 @@ def build_networkx_graph(triples: list[tuple]) -> nx.DiGraph:
 - Lưu trữ thông tin quan hệ trong thuộc tính của edge
 
 #### 2. **Truy vấn Đa bước (Multi-hop Querying)**
+
 ```python
 # Duyệt đồ thị 2-hop từ thực thể được tìm thấy
 undirected_G = G.to_undirected()
@@ -109,6 +120,7 @@ subgraph = G.subgraph(nearby_nodes)
 - **Path finding**: Tìm đường đi giữa các thực thể
 
 #### 3. **Phân tích Đồ thị**
+
 ```python
 # Các phân tích có thể thực hiện:
 print(f"Số nodes: {G.number_of_nodes()}")
@@ -121,6 +133,7 @@ print(f"Các connected components: {nx.number_connected_components(G)}")
 - Tìm central nodes (nodes quan trọng nhất)
 
 #### 4. **Visual hóa Đồ thị**
+
 ```python
 def visualize_graph(G: nx.DiGraph, output_path="knowledge_graph.png"):
     pos = nx.spring_layout(G, k=0.5)  # Sắp vị trí nodes
@@ -155,8 +168,9 @@ python main_benchmark.py
 ```
 
 **Output:**
+
 - Bảng so sánh kết quả giữa GraphRAG và Flat RAG
-- File ảnh `knowledge_graph.png` 
+- File ảnh `knowledge_graph.png`
 - Phân tích chi phí và thời gian xử lý
 
 ## Kết quả mong đợi
